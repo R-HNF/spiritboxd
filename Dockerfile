@@ -90,6 +90,7 @@ RUN groupadd -g $GID $GROUPNAME \
 COPY ./spiritboxd/ /home/$USERNAME/spiritboxd/
 COPY ./.profile /home/$USERNAME/.profile
 COPY ./.bashrc /home/$USERNAME/.bashrc
+COPY ./.bash_aliases /home/$USERNAME/.bash_aliases
 COPY ./.inputrc /home/$USERNAME/.inputrc
 COPY ./.ssh/ /home/$USERNAME/.ssh/
 COPY ./.local/ /home/$USERNAME/.local/
