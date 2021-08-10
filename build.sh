@@ -9,5 +9,6 @@ docker build \
     --build-arg USERNAME=user \
     --build-arg GROUPNAME=group \
     --build-arg PASSWORD=password \
+    --build-arg EMAIL=user@example.com \
     .
 echo 'Finish.'

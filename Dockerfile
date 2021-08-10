@@ -77,6 +77,7 @@ RUN apt-get install -y \
 ARG USERNAME=user
 ARG GROUPNAME=group
 ARG PASSWORD=password
+ARG EMAIL=user@example.com
 ARG UID=1000
 ARG GID=1000
 
