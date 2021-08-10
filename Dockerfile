@@ -88,7 +88,13 @@ RUN groupadd -g $GID $GROUPNAME \
     && echo "$USERNAME   ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 COPY ./spiritboxd/ /home/$USERNAME/spiritboxd/
+COPY ./.profile /home/$USERNAME/.profile
+COPY ./.bashrc /home/$USERNAME/.bashrc
+COPY ./.inputrc /home/$USERNAME/.inputrc
 COPY ./.ssh/ /home/$USERNAME/.ssh/
+COPY ./.local/ /home/$USERNAME/.local/
+COPY ./.tmux.conf /home/$USERNAME/.tmux.conf
+COPY ./.tmux/ /home/$USERNAME/.tmux/
 
 RUN chown -R $USERNAME:$GROUPNAME /home/$USERNAME/ \
     && touch /home/$USERNAME/.sudo_as_admin_successful
