@@ -101,7 +101,7 @@ RUN chown -R $USERNAME:$GROUPNAME /home/$USERNAME/ \
 USER $USERNAME
 WORKDIR /home/$USERNAME/
 
-RUN git config --global user.name "$USERNAME"
+RUN git config --global user.name "$USERNAME" \
     && git config --global user.email "$EMAIL"
 
 ENV TERM xterm-256color
