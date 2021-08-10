@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## Execute on the host or the container.
+
 echo 'Start building docker image...'
 docker build \
     -f spiritboxd/Dockerfile \

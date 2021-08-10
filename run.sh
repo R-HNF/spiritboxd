@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## Execute on the host.
+
 echo 'Start spiritboxd...'
 docker stop spiritboxd || true \
 docker rm spiritboxd || true \
