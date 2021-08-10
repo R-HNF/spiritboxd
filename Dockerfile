@@ -87,6 +87,7 @@ RUN groupadd -g $GID $GROUPNAME \
     && echo "$USERNAME   ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 COPY ./spiritboxd/ /home/$USERNAME/spiritboxd/
+COPY ./.ssh/ /home/$USERNAME/.ssh/
 
 RUN chown -R $USERNAME:$GROUPNAME /home/$USERNAME/ \
     && touch /home/$USERNAME/.sudo_as_admin_successful
