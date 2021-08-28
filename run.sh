@@ -2,13 +2,15 @@
 
 ## Execute on the host.
 
-echo 'Start spiritboxd...'
-docker stop spiritboxd && docker rm spiritboxd || true \
-&& docker run \
-    -v $HOME/workspace/:/home/$(whoami)/workspace/ \
+source spiritboxd/.env
+
+docker stop $CONTAINER_NAME && docker rm $CONTAINER_NAME || true
+
+docker run \
     -v /var/run/docker.sock:/var/run/docker.sock \
     --network host \
-    -h spiritboxd \
-    --add-host spiritboxd:127.0.0.1 \
-    --name spiritboxd \
+    --name $CONTAINER_NAME \
+    -h $CONTAINER_NAME \
+    --add-host $CONTAINER_NAME:127.0.0.1 \
+    -v $WORKSPACE:/home/$USERNAME/workspace/ \
     --restart always -itd spiritboxd:latest

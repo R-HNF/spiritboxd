@@ -1,14 +1,16 @@
 #!/bin/bash
 
-## Execute on the host or the container.
+## Execute at HOME DIRECTORY on the host or the container.
 
+source spiritboxd/.env
 echo 'Start building docker image...'
-docker build \
+
+docker build -t spiritboxd:latest \
+    --build-arg USERNAME=$USERNAME \
+    --build-arg GROUPNAME=$GROUPNAME \
+    --build-arg PASSWORD=$PASSWORD \
+    --build-arg EMAIL=$EMAIL \
     -f spiritboxd/Dockerfile \
-    -t spiritboxd:latest \
-    --build-arg USERNAME=user \
-    --build-arg GROUPNAME=group \
-    --build-arg PASSWORD=password \
-    --build-arg EMAIL=user@example.com \
     .
+
 echo 'Finish.'
