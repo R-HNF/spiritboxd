@@ -49,6 +49,12 @@ RUN apt install -y zip \
     && ./aws/install \
     && rm -rf ./aws awscliv2.zip
 
+# kubectl
+RUN bash -c "curl -LO 'https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl'" \
+    && bash -c "curl -LO 'https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256'" \
+    && bash -c 'echo "$(<kubectl.sha256) kubectl" | sha256sum --check' \
+    && install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
 # kubecolor
 RUN apt install wget \
     && bash -c "wget -O - 'https://github.com/dty1er/kubecolor/releases/download/v0.0.20/kubecolor_0.0.20_Linux_arm64.tar.gz' | tar zxvf -" \
@@ -62,7 +68,6 @@ RUN apt-get install -y \
         vim \
         tmux \
         git \
-        kubectl \
         keychain \
         bat \
         httpie \
