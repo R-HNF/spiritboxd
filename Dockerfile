@@ -99,12 +99,11 @@ COPY ./.tmux/ /home/$USERNAME/.tmux/
 
 RUN chown -R $USERNAME:$GROUPNAME /home/$USERNAME/ \
     && touch /home/$USERNAME/.sudo_as_admin_successful
+
 USER $USERNAME
 WORKDIR /home/$USERNAME/
-
 RUN git config --global user.name "$USERNAME" \
     && git config --global user.email "$EMAIL"
-
 ENV TERM xterm-256color
 
 CMD ["/usr/bin/tmux"]
