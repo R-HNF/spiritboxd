@@ -57,7 +57,7 @@ RUN bash -c "curl -LO 'https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/
 
 # kubecolor
 RUN apt install wget \
-    && bash -c "wget -O - 'https://github.com/dty1er/kubecolor/releases/download/v0.0.20/kubecolor_0.0.20_Linux_arm64.tar.gz' | tar zxvf -" \
+    && bash -c "wget -O - 'https://github.com/dty1er/kubecolor/releases/download/v0.0.20/kubecolor_0.0.20_Linux_x86_64.tar.gz' | tar zxvf -" \
     && mv kubecolor /usr/local/bin \
     && rm README.md LICENSE
 
